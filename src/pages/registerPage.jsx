@@ -1,7 +1,8 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import InputComponent from '../components/common/inputComponent';
 import Form from '../components/common/form';
-import axios from 'axios'
+import authService from '../services/authService';
 
 class RegisterPage extends Form {
     state = {
@@ -50,13 +51,16 @@ class RegisterPage extends Form {
             console.log(error)
             return
         }
-        // console.log(await axios.post('http://localhost:5000/api/users',this.state.account))
-        
-            const response = await axios.post('http://localhost:5000/api/users',this.state.account)
-            alert(response.data)
+        authService.register(this.state.account)
+        window.location= '/'
         }
 
     render() {
+        try{
+            authService.getUser()
+            return <Redirect to='/'/>
+        }
+        catch{
         return (
             <div className='col-3 mx-auto my-5'>
                 <h1 className='text-center'>Sign-up</h1>
@@ -68,6 +72,7 @@ class RegisterPage extends Form {
                 </form>
             </div>
         );
+        }
     }
 }
 

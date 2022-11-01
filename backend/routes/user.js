@@ -19,11 +19,14 @@ router.post('/', async (req,res)=>{
     user = new User({
         username:req.body.username,
         email:req.body.email,
-        password:req.body.password
+        password:req.body.password,
+        isAdmin:false
     })
 
     await user.save()
-    res.send("Congratulation! You are Signed Up.")
+
+    const token = user.generateAuth()
+    res.header('x-auth-token',token).send(token)
 })
 
 router.get('/',(req,res)=>{

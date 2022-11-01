@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import InputComponent from '../components/common/inputComponent';
 import Form from '../components/common/form';
-import axios from 'axios'
+import authService from '../services/authService';
 
 class LoginPage extends Form {
     state = {
@@ -44,11 +44,16 @@ class LoginPage extends Form {
             console.log(error)
             return
         }
-        const response = await axios.post('http://localhost:5000/api/auth',this.state.account)
-        alert(response.data)
+        authService.login(this.state.account)
+        window.location = '/'
     }
 
     render() {
+        try{
+            authService.getUser()
+            return <Redirect to='/'/>
+        }
+        catch{
         return (
             <div className='col-3 mx-auto my-5'>
                 <h1 className='text-center'>Login</h1>
@@ -62,6 +67,7 @@ class LoginPage extends Form {
                     </form>
             </div>
         );
+        }
     }
 }
 

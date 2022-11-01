@@ -3,9 +3,11 @@ import React, { Component } from 'react'
 import Navbar from './components/navbar';
 import Footer from './components/footer';
 import Routes from './layout/routes';
+import authService from './services/authService';
 
 class App extends Component {
   state = { 
+    user:"",
     cart:[]
    } 
 
@@ -48,12 +50,22 @@ class App extends Component {
     this.setState({cart:newCart})
    }
 
+  componentDidMount() {
+    try {
+      const user = authService.getUser()
+      this.setState({ user })
+
+    }
+    catch (err) {
+    }
+  } 
+
   render() { 
     return (
       <div className='vh-10 d-flex flex-column'>
-      <Navbar />
+      <Navbar user={this.state.user}/>
 
-      <Routes cart={this.state.cart} handleAddCart={this.handleAddCart} handleDelete={this.handleDelete} handleIncrement={this.handleIncrement} handleDecrement={this.handleDecrement}></Routes>
+      <Routes cart={this.state.cart} user={this.state.user} handleAddCart={this.handleAddCart} handleDelete={this.handleDelete} handleIncrement={this.handleIncrement} handleDecrement={this.handleDecrement}></Routes>
       
       <Footer />
     </div>

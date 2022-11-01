@@ -19,6 +19,12 @@ code {
 .text-white{
   color: aliceblue;
 }
+.text-black{
+  color: #000000;
+}
+.bg-black{
+  background-color: #000000;
+}
 .primary-text{
   color: #0F3D3E;
 }

@@ -1,7 +1,10 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import Admin from '../services/admin';
 
-const Navbar = () => {
+const Navbar = (props) => {
+  const user = props.user
+  console.log(user)
   return (
     <nav className="navbar navbar-expand-lg primary-color navbar-dark">
       <div className="container-fluid col-10 p-0 max-width-1600">
@@ -15,9 +18,25 @@ const Navbar = () => {
             <NavLink className="nav-link" to="">Products</NavLink>
             <NavLink className="nav-link" to="/about">About</NavLink>
             <NavLink className="nav-link" to="/contact">Contact</NavLink>
+            {
+              (Admin(user))&&<NavLink className="nav-link" to="/manage">Manage</NavLink>
+            }
+            
           </div>
           <div className="ms-auto navbar-nav">
-            <NavLink className="nav-link" to="/login">Login</NavLink>
+            {
+              (!user)&&<NavLink className="nav-link" to="/login">Login</NavLink>
+            }
+            
+            {
+              (user)&&<div class="dropdown">
+               <NavLink className="nav-link dropdown-toggle" to="/" data-bs-toggle="dropdown">{user.username}</NavLink>
+              <ul class="dropdown-menu p-0" >
+                <li><NavLink className="nav-link" to="/logout"><p className='text-black m-0'>Logout</p></NavLink></li>
+              </ul>
+            </div>
+            }
+            
             <NavLink className="nav-link" to="/cart">Cart</NavLink>
           </div>
         </div>
