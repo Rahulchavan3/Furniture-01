@@ -1,6 +1,8 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import InputComponent from '../components/common/inputComponent';
 import Form from '../components/common/form';
+import authService from '../services/authService';
 
 class RegisterPage extends Form {
     state = {
@@ -13,7 +15,7 @@ class RegisterPage extends Form {
         }
     }
 
-    validate = () => {
+    validate = () => { 
         let error = {}
         if (this.state.account.email.trim() == "") {
             error.username = 'email is required'
@@ -41,8 +43,24 @@ class RegisterPage extends Form {
                 return "password is required"
         }
     }
+    handleSubmit = async (e) => {
+        e.preventDefault()
+        const error = this.validate();
+        this.setState({ error: error })
+        if(error){
+            console.log(error)
+            return
+        }
+        authService.register(this.state.account)
+        window.location= '/'
+        }
 
     render() {
+        try{
+            authService.getUser()
+            return <Redirect to='/'/>
+        }
+        catch{
         return (
             <div className='col-3 mx-auto my-5'>
                 <h1 className='text-center'>Sign-up</h1>
@@ -54,6 +72,7 @@ class RegisterPage extends Form {
                 </form>
             </div>
         );
+        }
     }
 }
 

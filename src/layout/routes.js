@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import About from '../pages/about';
 import Contact from '../pages/contact';
 import LoginPage from '../pages/loginPage';
@@ -12,6 +12,8 @@ import BedPage from '../pages/bedPage';
 import CupboardPage from '../pages/cupboardPage';
 import CouchPage from '../pages/couchPage';
 import HomePage from '../pages/homePage';
+import Manage from '../pages/manage';
+import Logout from './../services/logout';
 
 class Routes extends Component {
   state = {
@@ -23,10 +25,19 @@ class Routes extends Component {
       <Switch>
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
+        <Route path="/manage" component={Manage} />
         <Route path="/login" component={LoginPage} />
+        <Route path="/logout" component={Logout} />
         <Route path="/signup" component={RegisterPage} />
 
-        <Route path="/cart"><Cart cart={this.props.cart} handleDelete={this.props.handleDelete} handleIncrement={this.props.handleIncrement} handleDecrement={this.props.handleDecrement} /></Route>
+        {/* <Route path="/cart"><Cart cart={this.props.cart} handleDelete={this.props.handleDelete} handleIncrement={this.props.handleIncrement} handleDecrement={this.props.handleDecrement} /></Route> */}
+
+        {/* protected Route */}
+        <Route path='/cart' render={()=>{
+          if(!this.props.user) return <Redirect to='/login'/>
+          return <Cart cart={this.props.cart} handleDelete={this.props.handleDelete} handleIncrement={this.props.handleIncrement} handleDecrement={this.props.handleDecrement} />
+        }}/>
+
 
         <Route path="/products/:category/:product" render={(props) => (
           <ProductDetailsPage category={props.match.params.category} product={props.match.params.product} cart={this.state.cart} handleAddCart={this.state.handleAddCart} />

@@ -276,5 +276,10 @@ const Products = {
     ]
 }
 
-export default Products;
+
+
+
+
+module.exports = Products
+    
 
