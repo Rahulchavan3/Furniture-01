@@ -13,6 +13,7 @@ router.post('/', async (req,res)=>{
     }
 
     // let user = await User.findOne({email: req.body.email})
+
     let user = await User.findOne({email: req.body.email})
     if(!user) {
         return res.send('Invalid email or password')
@@ -25,6 +26,7 @@ router.post('/', async (req,res)=>{
 
     const token = user.generateAuth()
     res.send(token)
+    
     
 })
 

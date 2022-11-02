@@ -6,6 +6,7 @@ const user = require('./routes/user')
 const auth = require('./routes/auth')
 const data = require('./routes/data')
 const products = require('./routes/products')
+const updateProduct = require('./routes/updateProduct')
 
 
 //Database
@@ -21,6 +22,7 @@ app.use(cors()) // Use this after the variable declaration
 app.use('/api/users',user)
 app.use('/api/auth',auth)
 app.use('/api/mongo/products',products)
+app.use('/api/updateProduct', updateProduct)
 app.use('/api',data)
 
 // app.post('/',(req,res)=>{

@@ -2,8 +2,9 @@ import axios from 'axios'
 import jwtDecode from 'jwt-decode'
 
 async function login(credentials) {
-    const { data: token } = await axios.post('http://localhost:5000/api/auth', credentials)
+    const { data:token } = await axios.post('http://localhost:5000/api/auth', credentials)
     localStorage.setItem('token', token)
+    
     // console.log(credentials,token)
 }
 
