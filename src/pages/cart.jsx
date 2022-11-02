@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 class Cart extends Component {
+   
     state = {}
 
     itemPrice = (price, quantity) => {
@@ -12,21 +13,43 @@ class Cart extends Component {
         cart.map(item => (
             count += item.inCart
         ))
-        return count
+        return count 
     }
 
     subTotal = (cart) => {
         let count = 0
         cart.map(item => (
-            count = count + (item.inCart * item.price)
-        ))
-        return count
+            count = count + (item.inCart * item.price)         
+        )
+        )
+         return count 
+        
     }
 
     render() {
-        const cart = this.props.cart
+        const cart = this.props.cart;
+        const SetPrice= this.subTotal(cart);
+        console.log(SetPrice);  
+        const launchRazorPay =()=>{
+            let options={
+                key:"rzp_test_jszJQLIkxBeIRh",
+                amount: SetPrice*100,
+                currency:"INR",
+                name: "Woodworks Furniture",
+                description: "Pay for Purchasing Furniture",
+                    handler: ()=>{
+                    alert("Payment Successfull")
+                },
+                theme:{color : "#f0d551"},
+            }
+            let razorPay = window.Razorpay(options);
+            razorPay.open();
+            console.log("payment started")
+            
+        }
+        
         return (
-            <div className='container'>
+             <div className='container'>
                 <div>
                     <h1>Shopping Cart</h1>
                 </div>
@@ -69,7 +92,7 @@ class Cart extends Component {
                             <h4>Subtotal ({this.subItem(cart)} Items) :</h4>
                             <h5 className='fw-bold'>₹{this.subTotal(cart)}</h5>
                             <div className='d-flex justify-content-center my-4'>
-                                <button type="button" class="btn btn-warning btn-sm"><p className='fw-bold m-0'>Proceed to Checkout</p></button>
+                                <button type="button" class="btn btn-warning btn-sm" onClick={launchRazorPay}><p className='fw-bold m-0'>Proceed to Checkout</p></button>
                             </div>
                         </div>
                     </div>

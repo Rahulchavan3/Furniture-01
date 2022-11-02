@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import Rating from './rating';
 
 const ProductCard = (props) => {
-    const product = props.product
+    const product = props.product;
+    
     return (
         <div className="card my-3">
             <Link to={`/products/${product.url}`}> <img src={product.image} className="card-img-top" alt={product.title} /></Link>

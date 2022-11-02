@@ -3,14 +3,14 @@ const Category = [
         title: 'Couch',
         url: 'couch-section',
         image: './images/couch.jpg',
-        price: 999,
+        price: 9999,
         description:'this is description'
     },
     {
         title: 'Cupboards',
         url: 'cupboard-section',
         image: './images/cupboard.jpg',
-        price: 999,
+        price: 3999,
         description:'this is description'
     },
     {
@@ -24,14 +24,14 @@ const Category = [
         title: 'Beds',
         url: 'bed-section',
         image: './images/bed.jpg',
-        price: 999,
+        price: 11999,
         description:'this is description'
     },
     {
         title: 'Chairs',
         url: 'chair-section',
         image: './images/chair.jpg',
-        price: 999,
+        price: 1499,
         description:'this is description'
     }
 ]

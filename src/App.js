@@ -5,9 +5,13 @@ import Footer from './components/footer';
 import Routes from './layout/routes';
 
 class App extends Component {
+ 
+  
+
   state = { 
     cart:[]
    } 
+   
 
    handleAddCart=(newProduct)=>{
     const productExist = this.state.cart.find((item)=>item._id==newProduct._id)
@@ -47,7 +51,8 @@ class App extends Component {
     const newCart = this.state.cart.filter((item)=>item._id!=product._id)
     this.setState({cart:newCart})
    }
-
+  
+  
   render() { 
     return (
       <div className='vh-10 d-flex flex-column'>

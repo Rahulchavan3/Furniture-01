@@ -23,11 +23,11 @@ const HomeCarousal = () => {
                 <h1 className='text-white '>New Products</h1>
               </div>
               <div className='col-10 offset-1'>
-                <Carousal text="Lorem ipsum dolor sit amet consectetur adipisicing."
+                <Carousal text="Wooden Sofas For Oodles of comfort."
                   image={cover1} class="carousel-item active" />
-                <Carousal text="Lorem ipsum dolor sit amet consectetur adipisicing."
+                <Carousal text="Lounge Chair For Piece of Extra Comfort."
                   image={cover2} class="carousel-item" />
-                <Carousal text="Lorem ipsum dolor sit amet consectetur adipisicing."
+                <Carousal text=" Tables The secret to a Productive WFH ."
                   image={cover3} class="carousel-item" />
               </div>
             </div>
