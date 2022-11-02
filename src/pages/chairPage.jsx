@@ -5,12 +5,17 @@ import axios from 'axios'
 
 class ChairPage extends Component {
     state={
-        chair:[]
+        chairs:[]
     }
     
     async componentDidMount() { 
-        const {data} = await axios.get('http://localhost:5000/api/products')
-        this.setState({chair:data.chairProducts})
+        // const {data} = await axios.get('http://localhost:5000/api/products')
+        // // this.setState({chairs:data.chairProducts})
+        // // console.log(data.chairProducts)
+
+        const {data:chairs} = await axios.get('http://localhost:5000/api/mongo/products/chairs')
+        // console.log(chairs)
+        this.setState({chairs})
      }
     render() {
         return (
@@ -18,8 +23,7 @@ class ChairPage extends Component {
             <h1>Chair Section</h1>
             <div className='row justify-content-around'>
                 {
-                    this.state.chair.map((product) => (
-                        
+                    this.state.chairs.map((product) => (
                         <div key={product.title} className='col-10 col-sm-5 col-md-4 col-lg-3 '>
                         <ProductCard product={product}
                             handleAddCart={this.props.handleAddCart}/>

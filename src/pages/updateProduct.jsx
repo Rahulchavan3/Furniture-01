@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-class Manage extends Component {
+class UpdateProduct extends Component {
     state = {  } 
     render() { 
         return (
-            <h1>Manage</h1>
+            <h1>Update Product</h1>
         );
     }
 }
  
-export default Manage;
+export default UpdateProduct;

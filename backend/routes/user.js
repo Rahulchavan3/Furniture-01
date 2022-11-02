@@ -23,10 +23,10 @@ router.post('/', async (req,res)=>{
         isAdmin:false
     })
 
-    await user.save()
-
-    const token = user.generateAuth()
-    res.header('x-auth-token',token).send(token)
+    const resp = await user.save()
+    res.send(resp)
+    // const token = user.generateAuth()
+    // res.header('x-auth-token',token).send(token)
 })
 
 router.get('/',(req,res)=>{

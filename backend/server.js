@@ -5,6 +5,7 @@ const dotenv = require('dotenv')
 const user = require('./routes/user')
 const auth = require('./routes/auth')
 const data = require('./routes/data')
+const products = require('./routes/products')
 
 
 //Database
@@ -19,8 +20,12 @@ app.use(cors()) // Use this after the variable declaration
 //ROUTES
 app.use('/api/users',user)
 app.use('/api/auth',auth)
+app.use('/api/mongo/products',products)
 app.use('/api',data)
 
+// app.post('/',(req,res)=>{
+    
+// })
 
 //SERVER
 const port = process.env.PORT || 5000;

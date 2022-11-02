@@ -12,8 +12,10 @@ import BedPage from '../pages/bedPage';
 import CupboardPage from '../pages/cupboardPage';
 import CouchPage from '../pages/couchPage';
 import HomePage from '../pages/homePage';
-import Manage from '../pages/manage';
+import Admin from '../pages/admin'
 import Logout from './../services/logout';
+import AddProduct from './../pages/addProduct';
+import UpdateProduct from './../pages/updateProduct';
 
 class Routes extends Component {
   state = {
@@ -25,10 +27,12 @@ class Routes extends Component {
       <Switch>
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
-        <Route path="/manage" component={Manage} />
         <Route path="/login" component={LoginPage} />
         <Route path="/logout" component={Logout} />
         <Route path="/signup" component={RegisterPage} />
+        <Route path="/admin/addProduct" component={AddProduct} />
+        <Route path="/admin/updateProduct" component={UpdateProduct} />
+        <Route path="/admin" component={Admin} />
 
         {/* <Route path="/cart"><Cart cart={this.props.cart} handleDelete={this.props.handleDelete} handleIncrement={this.props.handleIncrement} handleDecrement={this.props.handleDecrement} /></Route> */}
 

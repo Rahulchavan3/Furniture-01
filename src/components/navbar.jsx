@@ -4,7 +4,7 @@ import Admin from '../services/admin';
 
 const Navbar = (props) => {
   const user = props.user
-  console.log(user)
+  // console.log(user)
   return (
     <nav className="navbar navbar-expand-lg primary-color navbar-dark">
       <div className="container-fluid col-10 p-0 max-width-1600">
@@ -19,7 +19,7 @@ const Navbar = (props) => {
             <NavLink className="nav-link" to="/about">About</NavLink>
             <NavLink className="nav-link" to="/contact">Contact</NavLink>
             {
-              (Admin(user))&&<NavLink className="nav-link" to="/manage">Manage</NavLink>
+              (Admin(user))&&<NavLink className="nav-link" to="/admin">Admin</NavLink>
             }
             
           </div>

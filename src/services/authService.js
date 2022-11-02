@@ -16,7 +16,7 @@ async function register(credentials) {
     // console.log('inside register', credentials)
     const { data: token } = await axios.post('http://localhost:5000/api/users', credentials)
     localStorage.setItem("token", token)
-    // console.log('authServiceRegister',token)
+    console.log('authServiceRegister',token)
 }
 
 function logout() {
