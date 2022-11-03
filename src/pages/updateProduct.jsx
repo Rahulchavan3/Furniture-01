@@ -6,6 +6,7 @@ class UpdateProduct extends Component {
         product:{
             _id: "",
             title: "",
+            image:"",
             category: "",
             description: "",
             price: "",
@@ -66,21 +67,28 @@ class UpdateProduct extends Component {
                 <div className='col-8'>
                     <div class="input-group my-5">
                         <span class="input-group-text "><p className='m-0 fs-6 mx-4'>Title</p></span>
-                        <input class="form-control" name="title" placeholder={product.title} onChange={this.handleChange}/>
+                        <input class="form-control" name="title" defaultValue={product.title} onChange={this.handleChange}/>
+                    </div>
+                </div>
+
+                <div className='col-8'>
+                    <div class="input-group my-5">
+                        <span class="input-group-text "><p className='m-0 fs-6 mx-4'>Image</p></span>
+                        <input class="form-control" name="image" defaultValue={product.image} onChange={this.handleChange}/>
                     </div>
                 </div>
 
                 <div className='col-8'>
                     <div class="input-group  my-5">
                         <span class="input-group-text "><p className='m-0 fs-6 mx-4'>Category</p></span>
-                        <input class="form-control" name='category' placeholder={product.category} onChange={this.handleChange}/>
+                        <input class="form-control" name='category' defaultValue={product.category} onChange={this.handleChange}/>
                     </div>
                 </div>
 
                 <div className='col-8'>
                     <div class="input-group my-5">
                         <span class="input-group-text "><p className='m-0 fs-6 mx-4'>Description</p></span>
-                        <input class="form-control" name='description' placeholder={product.description} onChange={this.handleChange}/>
+                        <input class="form-control" name='description' defaultValue={product.description} onChange={this.handleChange}/>
                     </div></div>
 
                 <div className='col-8'>
@@ -92,11 +100,11 @@ class UpdateProduct extends Component {
                 <div className='col-8'>
                     <div class="input-group my-5">
                         <span class="input-group-text "><p className='m-0 fs-6 mx-4'>Stock</p></span>
-                        <input class="form-control" name='stock' placeholder={product.stock} onChange={this.handleChange}/>
+                        <input class="form-control" name='stock' defaultValue={product.stock} onChange={this.handleChange}/>
                     </div></div>
 
                 <div className='my-5'>
-                    <button type="button" class="btn btn-primary" onClick={this.handleSubmit}>Submit</button>
+                    <button type="button" class="btn btn-primary" onClick={this.handleSubmit}>Update</button>
                 </div>
             </div>
         );

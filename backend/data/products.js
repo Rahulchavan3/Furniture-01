@@ -2,7 +2,7 @@ const Products = {
     chairProducts: [
         {
             _id: 101,
-            title: 'chair-1',
+            title: 'Wooden Chair',
             url: 'chair-section/chair-1',
             category: 'chair',
             image: '/images/chair1.jpg',
@@ -17,7 +17,7 @@ const Products = {
         },
         {
             _id: 102,
-            title: 'chair-2',
+            title: 'Round Chair',
             url: 'chair-section/chair-2',
             category: 'chair',
             image: '/images/chair2.jpg',
@@ -31,7 +31,7 @@ const Products = {
         },
         {
             _id: 103,
-            title: 'chair-3',
+            title: 'Cushion Chair',
             url: 'chair-section/chair-3',
             category: 'chair',
             image: '/images/chair3.jpg',
@@ -45,7 +45,7 @@ const Products = {
         },
         {
             _id: 104,
-            title: 'chair-4',
+            title: 'Amazon Basic chair',
             url: 'chair-section/chair-4',
             category: 'chair',
             image: '/images/chair4.jpg',
