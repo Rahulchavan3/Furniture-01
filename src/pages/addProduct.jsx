@@ -42,7 +42,7 @@ class AddProduct extends Component {
 
     handleSubmit= async()=>{
         console.log('submit')
-        const {data:response} = await axios.post('http://localhost:5000/api/updateProduct/add', this.state.product)
+        const {data:response} = await axios.post('https://woodworks-react.onrender.com/api/updateProduct/add', this.state.product)
         if(response) alert('successfully added')
 
 

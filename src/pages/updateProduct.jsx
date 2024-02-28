@@ -17,7 +17,7 @@ class UpdateProduct extends Component {
     handleFetch = async (e) => {
         // e.preventDefault()
         // const id = e.currentTarget.value
-        const { data: product } = await axios.post('http://localhost:5000/api/updateProduct/fetch', this.state.product)
+        const { data: product } = await axios.post('https://woodworks-react.onrender.com/api/updateProduct/fetch', this.state.product)
         // console.log(product)
         this.setState({
             // id: product._id,
@@ -44,7 +44,7 @@ class UpdateProduct extends Component {
     }
 
     handleSubmit= async()=>{
-        const {data:response} = await axios.post('http://localhost:5000/api/updateProduct/update', this.state.product)
+        const {data:response} = await axios.post('https://woodworks-react.onrender.com/api/updateProduct/update', this.state.product)
         if(response) alert('successfully updated')
 
 

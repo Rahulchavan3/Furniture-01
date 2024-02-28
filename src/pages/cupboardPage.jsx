@@ -8,7 +8,7 @@ class CupboardPage extends Component {
     }
     
     async componentDidMount() { 
-        const {data} = await axios.get('http://localhost:5000/api/products')
+        const {data} = await axios.get('https://woodworks-react.onrender.com/api/products')
         this.setState({cupboard:data.cupboardProducts})
      } 
     render() {

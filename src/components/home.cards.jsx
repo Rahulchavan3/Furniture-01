@@ -8,7 +8,7 @@ class HomeCards extends Component {
     }
 
     async componentDidMount() {
-        const {data} = await axios.get('http://localhost:5000/api/category')
+        const {data} = await axios.get('https://woodworks-react.onrender.com/api/category')
         this.setState({data})
         
     }

@@ -13,7 +13,7 @@ class ChairPage extends Component {
         // // this.setState({chairs:data.chairProducts})
         // // console.log(data.chairProducts)
 
-        const {data:chairs} = await axios.get('http://localhost:5000/api/mongo/products/chairs')
+        const {data:chairs} = await axios.get('https://woodworks-react.onrender.com/api/mongo/products/chairs')
         console.log(chairs)
         this.setState({chairs})
      }

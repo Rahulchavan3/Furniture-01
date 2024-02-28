@@ -12,7 +12,7 @@ class ProductDetailsPage extends Component {
         const category = this.props.category
         const product = this.props.product
 
-        const { data } = await axios.get(`http://localhost:5000/api/products/${category}/${product}`)
+        const { data } = await axios.get(`https://woodworks-react.onrender.com/api/products/${category}/${product}`)
         this.setState({ product: data })
     }
 

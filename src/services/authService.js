@@ -2,7 +2,7 @@ import axios from 'axios'
 import jwtDecode from 'jwt-decode'
 
 async function login(credentials) {
-    const { data:token } = await axios.post('http://localhost:5000/api/auth', credentials)
+    const { data:token } = await axios.post('https://woodworks-react.onrender.com/api/auth', credentials)
     localStorage.setItem('token', token)
     
     // console.log(credentials,token)
@@ -15,7 +15,7 @@ function getUser() {
 
 async function register(credentials) {
     // console.log('inside register', credentials)
-    const { data: token } = await axios.post('http://localhost:5000/api/users', credentials)
+    const { data: token } = await axios.post('https://woodworks-react.onrender.com/api/users', credentials)
     localStorage.setItem("token", token)
     console.log('authServiceRegister',token)
 }

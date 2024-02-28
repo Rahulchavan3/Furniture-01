@@ -44,7 +44,7 @@ class LoginPage extends Form {
             console.log(error)
             return
         }
-        authService.login(this.state.account)
+        await authService.login(this.state.account)
         window.location = '/'
     }
 
